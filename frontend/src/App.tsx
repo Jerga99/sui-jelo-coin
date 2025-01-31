@@ -26,12 +26,8 @@ const App: React.FC = () => {
   return (
     <NavigationProvider>
       <div className={`${darkMode ? "dark" : ""}`}>
-        <div className="min-h-screen justify-center bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
-          <NavBar />
-          <div className="max-w-screen-xl m-auto pt-16">
-            <Pages />
-          </div>
-        </div>
+        <NavBar />
+        <Pages />
       </div>
     </NavigationProvider>
   );
