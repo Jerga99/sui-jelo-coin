@@ -1,6 +1,5 @@
 import React from "react";
 import { useTheme } from "./providers/theme/ThemeContext";
-import NavBar from "./components/shared/Navbar";
 import { NavigationProvider } from "./providers/navigation/NavigationProvider";
 import { useNavigation } from "./providers/navigation/NavigationContext";
 import WalletView from "./views/WalletView";
@@ -26,7 +25,6 @@ const App: React.FC = () => {
   return (
     <NavigationProvider>
       <div className={`${darkMode ? "dark" : ""}`}>
-        <NavBar />
         <Pages />
       </div>
     </NavigationProvider>

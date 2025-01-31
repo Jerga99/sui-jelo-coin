@@ -1,4 +1,5 @@
 import { FC } from "react";
+import NavBar from "../components/shared/Navbar";
 
 const HomeView: FC = () => {
   return (
@@ -9,6 +10,7 @@ const HomeView: FC = () => {
           backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/jelo_bg.png')",
         }}
       >
+        <NavBar />
         {/* Hero Section */}
         <div className="w-full text-center py-16 px-4 bg-gradient-to-r from-black/10 to-black/10 backdrop-blur-[2px]">
           <h1 className="text-9xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r text-white">

@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+body, html {
+  font-family: "Silkscreen", sans-serif;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.silkscreen-regular {
+  font-family: "Silkscreen", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.silkscreen-bold {
+  font-family: "Silkscreen", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
 /* Base styles */
 :root {
   --background-color: #f9fafb;
