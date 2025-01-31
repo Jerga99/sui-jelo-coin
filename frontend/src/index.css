@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+:root {
+  --background-color: #f9fafb;
+  --text-color: #111827;
+  --button-bg: #3b82f6;
+  --button-text: #ffffff;
+  --button-hover: #2563eb;
+}
+
+/* Dark mode styles */
+:root.dark {
+  --background-color: #111827;
+  --text-color: #f9fafb;
+  --button-bg: #2563eb;
+  --button-text: #ffffff;
+  --button-hover: #1d4ed8;
+}
+
+/* Apply variables */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}

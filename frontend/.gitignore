@@ -1,0 +1,31 @@
+# Node dependencies
+node_modules/
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Build outputs
+build/
+dist/
+out/
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+.env.*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor directories and settings
+.vscode/
+.idea/
