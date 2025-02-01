@@ -57,3 +57,31 @@ public fun mint(
 
     mint_cap.total_minted = mint_cap.total_minted + amount;
 }
+
+#[test_only]
+use sui::test_scenario;
+
+#[test]
+fun test_init() {
+    let publisher = @0x11;
+
+    let mut scenario = test_scenario::begin(publisher);
+    {
+        let otw = JELO{};
+        init(otw, scenario.ctx());
+    };
+
+    scenario.next_tx(publisher);
+    {
+        let mint_cap = scenario.take_from_sender<MintCapability>();
+        let jelo_coin = scenario.take_from_sender<coin::Coin<JELO>>();
+
+        assert!(mint_cap.total_minted == INITIAL_SUPPLY, EInvalidAmount);
+        assert!(jelo_coin.balance().value() == INITIAL_SUPPLY, EInvalidAmount);
+
+        scenario.return_to_sender(jelo_coin);
+        scenario.return_to_sender(mint_cap);
+    };
+
+    scenario.end();
+}
