@@ -5,7 +5,9 @@ use sui::url::new_unsafe_from_bytes;
 
 public struct JELO has drop {}
 
-const TOTAL_SUPPLY: u64 = 1_000_000_000_000_000_000;
+const COMMUNITY_SUPPLY: u64 = 700_000_000_000_000_000;
+const CEX_SUPPLY: u64 = 200_000_000_000_000_000;
+const OPERATIONS_SUPPLY: u64 = 100_000_000_000_000_000;
 
 fun init(otw: JELO, ctx: &mut TxContext) {
     let (mut treasury, metadata) = coin::create_currency(
@@ -18,7 +20,9 @@ fun init(otw: JELO, ctx: &mut TxContext) {
         ctx
     );
 
-    mint(&mut treasury, TOTAL_SUPPLY, ctx.sender(), ctx);
+    mint(&mut treasury, COMMUNITY_SUPPLY, @jelo_community, ctx);
+    mint(&mut treasury, CEX_SUPPLY, @jelo_cex, ctx);
+    mint(&mut treasury, OPERATIONS_SUPPLY, ctx.sender(), ctx);
 
     transfer::public_freeze_object(metadata);
     transfer::public_freeze_object(treasury);

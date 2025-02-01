@@ -20,6 +20,8 @@ Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-fram
 
 [addresses]
 jelo_coin = "0x0"
+jelo_community = "0xbe9b72a6204d22fd69e746aa448a7abcb2595166cbf640772134e3208cb03b1e"
+jelo_cex = "0xdf32595eec4d4fa538a11c278f0fca64d7bae3001c33313896986eae1427bdeb"
 
 # Named addresses will be accessible in Move as `@name`. They're also exported:
 # for example, `std = "0x1"` is exported by the Standard Library.
