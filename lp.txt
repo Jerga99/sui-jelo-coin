@@ -7,7 +7,7 @@ Create a LP (liquidity pool) and pair JELO / SUI
 x = 400 000 000 (JELO)
 y = 100 (SUI) = 400 USD
 
-Formula AMM (Automated Market Maker): x * y = k
+Formula AMM (Automated Market Maker): x * y = k; x = k / y
 
 ---DETERMINING THE VALUE---
 
@@ -15,5 +15,25 @@ k = 400 000 000 * 100 = 40 000 000 000
 
 400000000 / 100
 Price per 1 JELO = 0.00000025 SUI
+
+
+
+---Scenarion buying Jelo---
+Buy JELO worth of 5 Sui
+
+1| y -> 100 + 5 = 105 Sui
+2| x = k / y = 40000000000 / 105 = 380 952 380
+3| Jelo bought -> 400000000 - 380952380 = 19 047 620
+
+
+---Fee Breakdown---
+
+When someone buys JELO worth of 25 Sui ($100)
+
+1. Total Fee Charged: $0.25 (0.25% of $100)
+2. Your share as LP: $0.20 (80% of the fee)
+3. Cetus protocol share: $0.05 (20% of the fee)
+
+---Slippage---
 
 
