@@ -34,6 +34,42 @@ When someone buys JELO worth of 25 Sui ($100)
 2. Your share as LP: $0.20 (80% of the fee)
 3. Cetus protocol share: $0.05 (20% of the fee)
 
----Slippage---
+---Slippage Scenario---
+
+
+400 000 000 JELO / 100 Sui
+k = 40 000 000 000
+Before the trade, price per 1 JELO = 0.00000025 SUI
+
+Buying JELO worth of 25 Sui
+
+1. y -> 100 + 25 = 125
+2. x = k / y -> 40000000000 / 125 = 320 000 000 JELO
+3. JELO bought -> 400 000 000 - 320 000 000 = 80 000 000
+
+Real Price (Executed Price) at the end of trade
+
+125 / 320000000 = 0.00000039
+
+---Slippage Calculation---
+
+(Executed Price - Expected Price) / Expected Price
+
+= (0.00000039 - 0.00000025) / 0.00000025 = 0.56 * 100 = 56%
+
+You end up paying 56% more SUI per JELO than you initialy expected.
+
+Options -> increase the pool size. Add more Sui into the intial pool to reduce slippage.
+
+
+If your pool has 100 Sui and 400M Jelo a trade of 25 Sui (25% of the pool)
+this will significant slippage (56%)
+
+10000 Sui / 400M Jelo
+
+trade of 25 Sui accounts for (25 / 10000) * 100 = 0.25% of the pool
+
+
+
 
 
