@@ -82,15 +82,22 @@ public fun mint_locked(
     transfer::public_transfer(locker, recipient);
 }
 
-entry fun withdraw_locked(locker: &mut Locker, clock: &Clock, ctx: &mut TxContext) {
-    assert!(clock.timestamp_ms() >= locker.unlock_date, ETokenLocked);
+entry fun withdraw_locked(locker: Locker, clock: &Clock, ctx: &mut TxContext): u64 {
+    let Locker { id, mut balance, unlock_date} = locker;
 
-    let locked_balance_value = locker.balance.value();
+    assert!(clock.timestamp_ms() >= unlock_date, ETokenLocked);
+
+    let locked_balance_value = balance.value();
 
     transfer::public_transfer(
-        coin::take(&mut locker.balance, locked_balance_value, ctx),
+        coin::take(&mut balance, locked_balance_value, ctx),
         ctx.sender()
     );
+
+    balance.destroy_zero();
+    object::delete(id);
+
+    locked_balance_value
 }
 
 fun mint_internal(
