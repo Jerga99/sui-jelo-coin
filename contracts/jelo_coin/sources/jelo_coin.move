@@ -2,7 +2,7 @@ module jelo_coin::jelo;
 
 use sui::coin::{Self, TreasuryCap};
 use sui::balance::{Balance};
-use sui::clock::{Self, Clock};
+use sui::clock::{Clock};
 use sui::url::new_unsafe_from_bytes;
 
 const EInvalidAmount: u64 = 0;
@@ -117,6 +117,8 @@ fun mint_internal(
 
 #[test_only]
 use sui::test_scenario;
+#[test_only]
+use sui::clock;
 
 #[test]
 fun test_init() {
