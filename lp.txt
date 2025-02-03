@@ -1,0 +1,19 @@
+
+
+
+Create a LP (liquidity pool) and pair JELO / SUI
+
+----INITIAL POOL STATE---
+x = 400 000 000 (JELO)
+y = 100 (SUI) = 400 USD
+
+Formula AMM (Automated Market Maker): x * y = k
+
+---DETERMINING THE VALUE---
+
+k = 400 000 000 * 100 = 40 000 000 000
+
+400000000 / 100
+Price per 1 JELO = 0.00000025 SUI
+
+

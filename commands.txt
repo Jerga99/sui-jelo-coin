@@ -19,5 +19,5 @@ sui client ptb \
 
 sui client ptb \
 --move-call 0xb200680489fcedf93768eb35effb663d962757cc54ba58aa5c7b5478a4c89dd5::jelo::withdraw_locked \
-@<locked_id> \
+@0xdeedcfe3edc2a315e8c72e660e99ecbd17b5785a45f45e0378ca77432609dce6 \
 @0x6
