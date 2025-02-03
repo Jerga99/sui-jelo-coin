@@ -279,3 +279,54 @@ fun test_mint_overflow() {
 
     scenario.end();
 }
+
+#[test]
+#[expected_failure(abort_code = ETokenLocked)]
+fun test_withdraw_locked_before_unlock() {
+    let publisher = @0x11;
+    let bob = @0xB0B;
+
+    let mut scenario = test_scenario::begin(publisher);
+    {
+        let otw = JELO{};
+        init(otw, scenario.ctx());
+    };
+
+    scenario.next_tx(publisher);
+    {
+        let mut mint_cap = scenario.take_from_sender<MintCapability>();
+        let duration = 5000;
+        let test_clock = clock::create_for_testing(scenario.ctx()); // 0 + 5000
+
+        mint_locked(
+            &mut mint_cap,
+            100_000_000_000_000_000,
+            bob,
+            duration,
+            &test_clock,
+            scenario.ctx()
+        );
+
+        assert!(mint_cap.total_minted == TOTAL_SUPPLY, EInvalidAmount);
+        scenario.return_to_sender(mint_cap);
+        test_clock.destroy_for_testing();
+    };
+
+    scenario.next_tx(bob);
+    {
+        let locker = scenario.take_from_sender<Locker>();
+        let duration = 4999;
+        let mut test_clock = clock::create_for_testing(scenario.ctx()); // 0
+        test_clock.set_for_testing(duration);
+
+        withdraw_locked(
+            locker,
+            &test_clock,
+            scenario.ctx()
+        );
+
+        test_clock.destroy_for_testing();
+    };
+
+    scenario.end();
+}
